@@ -1,4 +1,4 @@
-import deleteUserService from "../services/deleteUser.service";
+import deleteUserService from "../../services/userServices/deleteUser.service";
 
 const deleteUserController = (request, response) => {
   const { id } = request.params;

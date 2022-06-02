@@ -1,4 +1,4 @@
-import userLoginService from "../services/userLogin.service";
+import userLoginService from "../../services/userServices/userLogin.service";
 
 const userLoginController = (request, response) => {
   const { email, password } = request.body;

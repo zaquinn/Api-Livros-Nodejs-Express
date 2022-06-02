@@ -1,4 +1,4 @@
-import listUsersService from "../services/listUsers.service";
+import listUsersService from "../../services/userServices/listUsers.service";
 
 const listUsersController = (request, response) => {
   const users = listUsersService();

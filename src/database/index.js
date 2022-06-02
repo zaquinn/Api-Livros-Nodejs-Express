@@ -1,3 +1,5 @@
-let users = [];
+export let users = [];
 
-let books = [];
+export let books = [];
+
+export let booksPublic = [];
