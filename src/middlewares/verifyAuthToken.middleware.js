@@ -1,18 +1,20 @@
 import jwt from "jsonwebtoken";
 
-const verifyAuthTokenMiddleware = (request, response, next) => {
-  let token = request.headers.authorization;
+const verifyAuthTokenMiddleware = (req, res, next) => {
+  let token = req.headers.authorization;
 
   if (!token) {
-    return response.status(401).json({
-      message: "Missing Authorization Token.",
+    return res.status(401).json({
+      message: "Invalid token",
     });
   }
 
-  jwt.verify(token, "SECRET_KEY", (error, decoded) => {
+  token = token.split(" ")[1];
+
+  jwt.verify(token, "sdfDFG!@#%ASDFAS", (error, decoded) => {
     if (error) {
-      return response.status(401).json({
-        message: "Invalid Token.",
+      return res.status(401).json({
+        message: "Invalid token",
       });
     }
 

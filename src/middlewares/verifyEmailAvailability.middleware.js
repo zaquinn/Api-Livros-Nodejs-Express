@@ -1,4 +1,4 @@
-import users from "../database";
+import { users } from "../database";
 
 const verifyEmailAvailabilityMiddleware = (request, response, next) => {
   const { email } = request.body;

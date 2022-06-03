@@ -2,20 +2,22 @@ import { users } from "../../database";
 import jwt from "jsonwebtoken";
 import * as bcrypt from "bcryptjs";
 
-const userLoginService = (email, password) => {
+const userLoginService = async (email, password) => {
   const user = users.find((eachUser) => eachUser.email === email);
 
   if (!user) {
     return "Email ou senha inválidos!";
   }
 
-  const passwordMatch = bcrypt.compareSync(password, user.password);
+  const passwordMatch = await bcrypt.compareSync(password, user.password);
 
   if (!passwordMatch) {
     return "Email ou senha inválidos";
   }
 
-  const token = jwt.sign({ email: email }, "SECRET_KEY", { expiresIn: "24h" });
+  const token = jwt.sign({ email: email }, "sdfDFG!@#%ASDFAS", {
+    expiresIn: "24h",
+  });
 
   return { token };
 };
