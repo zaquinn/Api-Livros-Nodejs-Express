@@ -1,7 +1,7 @@
-import { books } from "../../database";
+import { booksPublic } from "../../database";
 
 const listBooksPublicService = () => {
-  return books;
+  return booksPublic;
 };
 
 export default listBooksPublicService;

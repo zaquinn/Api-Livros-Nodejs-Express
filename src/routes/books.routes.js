@@ -12,14 +12,14 @@ const router = Router();
 
 router.get("", verifyAuthTokenMiddleware, listBooksPublicController);
 router.get(
-  "/:id",
+  "/:owner_id",
   verifyAuthTokenMiddleware,
   verifyOwnership,
   listMyBooksController
 );
 router.post("", verifyAuthTokenMiddleware, createBooksController);
 router.put(
-  ":/id",
+  "/:owner_id",
   verifyAuthTokenMiddleware,
   verifyOwnership,
   updateBooksController

@@ -15,9 +15,8 @@ const updateBooksService = (owner_id, title, author, year) => {
     year,
   };
 
-  const bookIndex = books.findIndex((eachBook) => eachBook.title === title);
-  const myBooksIndex = booksPublic.findIndex(
-    (eachBook) => eachBook.title === title
+  const bookIndex = books.findIndex(
+    (eachBook) => eachBook.owner_id === owner_id
   );
 
   if (bookIndex === -1) {
@@ -25,9 +24,9 @@ const updateBooksService = (owner_id, title, author, year) => {
   }
 
   books[bookIndex] = { ...books[bookIndex], ...bookUpdated };
-  booksPublic[myBooksIndex] = { ...books[bookIndex], ...myBookUpdated };
+  booksPublic[bookIndex] = { ...booksPublic[bookIndex], ...myBookUpdated };
 
-  return books[userIndex];
+  return books[bookIndex];
 };
 
 export default updateBooksService;

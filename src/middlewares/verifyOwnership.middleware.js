@@ -1,9 +1,9 @@
 import { users } from "../database";
 
 const verifyOwnership = (request, response, next) => {
-  const { id } = request.params;
+  const { owner_id } = request.params;
 
-  const checkOwnership = users.find((eachUser) => eachUser.id === id);
+  const checkOwnership = users.find((eachUser) => eachUser.id === owner_id);
 
   if (!checkOwnership) {
     return response.status(400).json({
